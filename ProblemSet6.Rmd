@@ -1,0 +1,198 @@
+---
+title: "STA130H1S -- Fall 2022"
+author: "<Student Name> (<Student Number>) and STA130 Professors"
+subtitle: Problem Set 6
+urlcolor: blue
+output:
+  pdf_document: default
+---
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(eval=TRUE, include=TRUE, echo=TRUE, message=FALSE, warning=FALSE)
+```
+
+# Instructions
+
+Complete the exercises in this .Rmd file and submit your .Rmd and .pdf output through [Quercus](https://q.utoronto.ca/courses/253019/assignments/782402) on October 20 by 5:00 p.m. ET. 
+
+
+```{r, message=FALSE}
+library(tidyverse)
+```
+
+# Part 1: Bootstrap Confidence Intervals
+
+## Question 1: Driving on the "Right" side of the Road
+
+In this question, you will explore data about cars drive on the right or left side of the road in different countries.  World Standards' [list of left driving countries](https://www.worldstandards.eu/cars/list-of-left-driving-countries/) shows that 86 of all 270 countries in the world drive on the left side of the road. 
+
+```{r}
+roaddata <- tibble(road_side = c(rep("left", 86), rep("right", 270-86)))
+```
+
+### (a) Are the observations in `roaddata` the entire population or a sample from a population?
+
+*REPLACE THIS TEXT WITH YOUR ANSWER*
+
+### (b) Pipe the `roaddate` `tibble` into the `slice_sample(n=100)` function to select a random sample of  100 countries. Call this new data `road_sample`. .
+
+```{r}
+set.seed(123) # Set the seed as the last *three* digits of your student number
+```
+
+### (c) Using the `road_sample` sample you created in (b), simulate 2000 bootstrap samples and calculate the proportion of countries who drive on the left in each of these bootstrap samples. Produce a histogram of the bootstrap sampling distribution of the proportion of regions that drive on the left side. 
+
+```{r}
+set.seed(123) # Set the seed as the last *three* digits of your student number
+```
+
+### (d) Calculate a 90% confidence interval for the proportion of countries/regions which drive on the left based on the bootstrap sampling distribution you generated in (c).
+
+```{r}
+
+```
+
+### (e) Assume for the moment that your confidence interval was (27%, 44%). [You own confidence interval is likely different from this based on your random seed]. Indicate whether or not each of the following statements is a correct interpretation of the confidence interval constructed in part (d) and justify your answers. 
+
+(A) We are 90% confident that between 27% and 44% of countries/regions in our sample from (b) drive on the left side.
+  
+(B) There is a 90% chance that between 27% and 44% of all countries in the population drive on the left side. 
+
+(C) If we consider many random samples of 100 countries/regions, and we calculate 90% bootstrap confidence intervals for each sample, approximately 90% of these confidence intervals will include the true proportion of countries/regions in the population who drive on the left side of the road.
+
+*REPLACE THIS TEXT WITH YOUR ANSWER*
+
+### (f) If we want to be *more* confident about capturing the proportion of all countries who drive on the left side, should we use a *wider* confidence level or a *narrower* confidence level? Explain your answer.  
+
+*REPLACE THIS TEXT WITH YOUR ANSWER*
+
+### (g) We could carry out an hypothesis test to investigate whether or not countries are equally likely to drive on the right or to the left side of the road.  State the NULL hypotheses of such a test.
+
+*REPLACE THIS TEXT WITH YOUR ANSWER*
+
+## Question 2: Auto Claims
+
+The data set `auto_claims.csv` includes claims paid (in USD) to a sample of auto insurance claimants 50 years of age and older in a specific year. In other words, it represents a 'sample' (the 'original sample') of car insurance claims in that year.  
+
+### (a)  Produce appropriate data summaries (i.e. a summary table and relevant visualization) of paid claims (`PAID`) and comment the shape, centre and spread of this distribution. 
+
+```{r}
+
+```
+
+### (b)  Estimate the sampling distributions of sample *median* of paid claims by taking 1000 samples of size n=500 (to match the sample size in the data) and produce appropriate data summaries. 
+
+```{r}
+set.seed(123) # Set the seed as the last *three* digits of your student number
+
+```
+
+### (c) Using the simulation in part (b) derive a 95% confidence interval for the median of paid claims. 
+
+```{r}
+
+```
+
+
+# Part 2: Optional
+
+You may complete these questions for practice if you wish.
+***You are not required to complete these questions as they ARE NOT included as part of your mark.***
+
+# Question 3: More Auto Claims
+
+### (a) Select 1000 samples of size 20 from the population of claims stored in the `auto_claims_population.csv` data set. Ensure each sample is taken without replacement, so there are no repeated observations within each sample. Compute the mean `age` of claimants for each sample, calculate the overall mean of sample means, and make a histogram of the simulated sample means.
+
+```{r}
+
+```
+
+### (b) Now create a single random sample of 20 car insurance claims and store these 20 observations in a `tibble` called `ages20`.  Create a histogram of the sample, and compute the `min()`, `mean()`, `median()`, `max()`, and `sd()` of the `age` variable using the `summarise()` function and include the `n=n()` summary as well.
+
+```{r}
+
+```
+
+
+### (c) Use R to take bootstrap 1000 samples from `ages20`. Compute the mean age of claimants for each bootstrap sample, calculate the overall mean of the bootstrap sample means, and make a histogram of the simulated sample means.
+
+```{r}
+
+```
+
+### (d) What distribution do the distributions we simulated in (a) and (c) both estimate? Comment on the similarities and differences for a given random seed initializations, and speculate how this could change under different random seed initializations.
+
+*REPLACE THIS TEXT WITH YOUR ANSWER*
+
+# Question 3: Gestation Data
+
+In this question we will look at data from the Child Health and Development Studies. Our data are adapted from the `Gestation` data set in the `mosaicData` package. Birth weight, date, and gestational period were collected as part of the Child Health and Development Studies in 1961 and 1962 for a sample of 400 mothers who had babies in these two years. Information about the baby's parents—age, education, height, weight, and whether the mother smoked—was also recorded.
+
+We will find confidence intervals for parameters related to the distribution of the mother's age, which for this sample is stored in the variable `age`.
+
+```{r}
+Gestation <- read_csv("gestation.csv")
+```
+
+### (a) Suppose we are interested in how means of random samples of n=400 mothers vary across possible samples of 400 mothers we could take from the population. Explain why it is not possible to use these data (i.e., 'Gestation') to estimate this like we did in Case Study 1, question a).
+
+*REPLACE THIS TEXT WITH YOUR ANSWER*
+
+### (b)  The plot below shows the bootstrap distribution for the mean of mother's age for 100 bootstrap samples.  The red dot is the estimate of the mean for the first bootstrap sample, and the grey dots are the estimates of the mean for the other 99 bootstrap samples. Explain how the value of the red dot is calculated; then, using the plot, estimate a 90% confidence interval for the mean of mother's age.
+
+*REPLACE THIS TEXT WITH YOUR ANSWER*
+
+```{r, message=F, warning=F, echo=F}
+set.seed(50)
+boot_means <- rep(NA, 100)  # where we'll store the bootstrap means
+sample_size <- as.numeric(Gestation %>% summarize(n()))
+
+# Run 100 bootstrap samples
+for (i in 1:100)
+{
+  boot_samp <- Gestation %>% slice_sample(n=sample_size, replace=TRUE)
+  boot_means[i] <- as.numeric(boot_samp %>% summarize(mean(age)))
+}
+
+boot_means1 <- tibble(boot_means = boot_means[1])
+boot_means2to100 <- tibble(boot_means = boot_means[2:100])
+
+# Plot the distribution
+ggplot(boot_means2to100, aes(x=boot_means)) + 
+  geom_dotplot(alpha=.5) + 
+  geom_dotplot(data=boot_means1, aes(x=boot_means), fill="red", alpha=.5) +
+  labs( title="Bootstrap distribution for mean of mother's age") +
+  scale_y_continuous(NULL, breaks=NULL) # get rid of strange label on y-axis for dotplot
+boot_means <- tibble(boot_means)
+summarise(boot_means,
+          min = min(boot_means),
+          mean = mean(boot_means),
+          median = median(boot_means), 
+          max = max(boot_means),
+          sd = sd(boot_means),
+          n = n())
+```
+
+
+
+### (c) Use R to find a 99% bootstrap confidence interval for the mean of mother's age.  Use 2000 bootstrap samples.
+
+```{r}
+
+```
+
+### (d) Explain why the interpretation *"There is a 99% chance that the true mean of a mother's age at the time this sample was taken is between 26.8 and 28.2 years."* is *INCORRECT*. What is a correct interpretation?
+
+*REPLACE THIS TEXT WITH YOUR ANSWER*
+
+### (e) Use R to find a 95% bootstrap confidence interval for the *median* of mother's age.  Use 2000 bootstrap samples.
+
+```{r}
+
+```
+
+### (f) Write a statement interpreting this interval.
+
+*REPLACE THIS TEXT WITH YOUR ANSWER*
+
+
