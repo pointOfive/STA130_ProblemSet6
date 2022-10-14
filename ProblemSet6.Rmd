@@ -13,7 +13,7 @@ knitr::opts_chunk$set(eval=TRUE, include=TRUE, echo=TRUE, message=FALSE, warning
 
 # Instructions
 
-Complete the exercises in this .Rmd file and submit your .Rmd and .pdf output through [Quercus](https://q.utoronto.ca/courses/253019/assignments/782402) on October 20 by 5:00 p.m. ET. 
+Complete the exercises in this .Rmd file and submit your .Rmd and .pdf output through [Quercus](https://q.utoronto.ca/courses/277998/assignments/910637) on October 20 by 5:00 p.m. ET. 
 
 
 ```{r, message=FALSE}
@@ -38,17 +38,22 @@ roaddata <- tibble(road_side = c(rep("left", 86), rep("right", 270-86)))
 
 ```{r}
 set.seed(123) # Set the seed as the last *three* digits of your student number
+# code your answer here
+
 ```
 
 ### (c) Using the `road_sample` sample you created in (b), simulate 2000 bootstrap samples and calculate the proportion of countries who drive on the left in each of these bootstrap samples. Produce a histogram of the bootstrap sampling distribution of the proportion of regions that drive on the left side. 
 
 ```{r}
 set.seed(123) # Set the seed as the last *three* digits of your student number
+# code your answer here
+
 ```
 
 ### (d) Calculate a 90% confidence interval for the proportion of countries/regions which drive on the left based on the bootstrap sampling distribution you generated in (c).
 
 ```{r}
+# code your answer here
 
 ```
 
@@ -56,7 +61,11 @@ set.seed(123) # Set the seed as the last *three* digits of your student number
 
 (A) We are 90% confident that between 27% and 44% of countries/regions in our sample from (b) drive on the left side.
   
+*REPLACE THIS TEXT WITH YOUR ANSWER*
+
 (B) There is a 90% chance that between 27% and 44% of all countries in the population drive on the left side. 
+
+*REPLACE THIS TEXT WITH YOUR ANSWER*
 
 (C) If we consider many random samples of 100 countries/regions, and we calculate 90% bootstrap confidence intervals for each sample, approximately 90% of these confidence intervals will include the true proportion of countries/regions in the population who drive on the left side of the road.
 
@@ -77,6 +86,7 @@ The data set `auto_claims.csv` includes claims paid (in USD) to a sample of auto
 ### (a)  Produce appropriate data summaries (i.e. a summary table and relevant visualization) of paid claims (`PAID`) and comment the shape, centre and spread of this distribution. 
 
 ```{r}
+# code your answer here
 
 ```
 
@@ -84,12 +94,14 @@ The data set `auto_claims.csv` includes claims paid (in USD) to a sample of auto
 
 ```{r}
 set.seed(123) # Set the seed as the last *three* digits of your student number
+# code your answer here
 
 ```
 
 ### (c) Using the simulation in part (b) derive a 95% confidence interval for the median of paid claims. 
 
 ```{r}
+# code your answer here
 
 ```
 
@@ -104,12 +116,14 @@ You may complete these questions for practice if you wish.
 ### (a) Select 1000 samples of size 20 from the population of claims stored in the `auto_claims_population.csv` data set. Ensure each sample is taken without replacement, so there are no repeated observations within each sample. Compute the mean `age` of claimants for each sample, calculate the overall mean of sample means, and make a histogram of the simulated sample means.
 
 ```{r}
+# code your answer here
 
 ```
 
 ### (b) Now create a single random sample of 20 car insurance claims and store these 20 observations in a `tibble` called `ages20`.  Create a histogram of the sample, and compute the `min()`, `mean()`, `median()`, `max()`, and `sd()` of the `age` variable using the `summarise()` function and include the `n=n()` summary as well.
 
 ```{r}
+# code your answer here
 
 ```
 
@@ -117,6 +131,7 @@ You may complete these questions for practice if you wish.
 ### (c) Use R to take bootstrap 1000 samples from `ages20`. Compute the mean age of claimants for each bootstrap sample, calculate the overall mean of the bootstrap sample means, and make a histogram of the simulated sample means.
 
 ```{r}
+# code your answer here
 
 ```
 
@@ -178,6 +193,7 @@ summarise(boot_means,
 ### (c) Use R to find a 99% bootstrap confidence interval for the mean of mother's age.  Use 2000 bootstrap samples.
 
 ```{r}
+# code your answer here
 
 ```
 
@@ -188,6 +204,7 @@ summarise(boot_means,
 ### (e) Use R to find a 95% bootstrap confidence interval for the *median* of mother's age.  Use 2000 bootstrap samples.
 
 ```{r}
+# code your answer here
 
 ```
 
